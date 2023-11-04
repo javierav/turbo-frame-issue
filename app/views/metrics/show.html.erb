@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "metrics", data: { turbo_action: "advance" } do %>
+  <h3>Metric <%= @metric %> for <%= @period %></h3>
+  <ul>
+    <li><%= link_to "Energy", report_path(@period, "energy") %></li>
+    <li><%= link_to "Power", report_path(@period, "power") %></li>
+    <li><%= link_to "Costs", report_path(@period, "costs") %></li>
+  </ul>
+<% end %>

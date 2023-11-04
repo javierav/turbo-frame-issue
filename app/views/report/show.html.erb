@@ -1,0 +1,12 @@
+<ul>
+  <li><%= link_to "Report for day", report_path("day", "energy"), class: request.path.include?("day") ? "text-red-700" : "" %></li>
+  <li><%= link_to "Report for month", report_path("month", "energy"), class: request.path.include?("month") ? "text-red-700" : "" %></li>
+  <li><%= link_to "Report for year", report_path("year", "energy"), class: request.path.include?("year") ? "text-red-700" : "" %></li>
+</ul>
+
+<br />
+<br />
+
+<%= turbo_frame_tag "metrics", data: { turbo_action: "advance" }, src: metric_path(@metric, @period) do %>
+  <p>Loading metric <%= @metric %>...</p>
+<% end %>
